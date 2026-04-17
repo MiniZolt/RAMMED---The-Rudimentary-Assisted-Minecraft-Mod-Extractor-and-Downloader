@@ -36,29 +36,33 @@ RAMMED provides a few very, very simple functions. I'll go over how to use each 
 
 USE INSTRUCTIONS FOR INSTALLER
 
-The installer function only requires you paste your mod folder directory from your mod loader, and that
-someone be online and serving their mod folder. Thats it! When you first run it, it will manually scan 
-for whomever is serving their mod folder, and then save their address to a cache for when you go to 
-download mods again. If they go offline, or aren't serving their folder, it will manually scan again
-and add that new host to the cache as well. Otherwise, this runs fairly quick after the first install!
+In this version, 0.0.2, the modfolder is now found automatically. If you have multiple instances,
+then it'll let you choose which one you want to install your mods to. Select one from the list,
+and thats it! When you first run it, it will manually scan for whomever is serving their mod folder, 
+and then save their address to a cache for when you go to download mods again. If they go offline, or 
+aren't serving their folder, it will manually scan again and add that new host to the cache as well. 
+Otherwise, this runs fairly quick after the first install! Be careful, if you run installer on a 
+folder that already has mods in it, it will overwrite anything with the same name!
 
 USE INSTRUCTIONS FOR LISTER
 
 The list function... lists the files in your modfolder (well, actually only .jar/.zip/.disabled but whatever).
-To use it, just paste your modfolder path to it and it works. This is somewhat useful to quickly compare 
+Same thing as the installer, just pick your insance (if you have multiple). This is somewhat useful to quickly compare 
 folders with your lan mates while you already have the path copied. Is it redundant? Yeah. Is it kind of 
 silly to have in here? Yeah. Did I still add it? Yeah, because it was fun and I'm learning. Womp womp. 
 
 USE INSTRUCTIONS FOR DELETER
 
-The delete function is a quick way to nuke your mod folder before downloading new ones. Again, just paste
-your mod folder directory from your mod loader and watch your stuff get nuked. 
+The delete function is a quick way to nuke your mod folder before downloading new ones. Again, same story as above.
+If you have multiple instances, just pick the right one and double check it in the confirmation before you nuke
+the folder. 
 
 USE INSTRUCTIONS FOR SERVER
 
-The server function also only requires you to paste your mod folder path. It will let you share your mod folder
+The server function also only requires you to pick your instance. It will let you share your mod folder
 so that fellow LAN mates can download your mod folder. This shares your modfolder, and only your modfolder - you
-won't have to worry about your friends finding your 58 GB "homework" folder. 
+won't have to worry about someone snooping around for your sensitive stuff. It also wont share resource packs or 
+shaders however, since they're client side and aren't required to run. 
 
 That's it! I will update it with random bits and bobs here and there. Enjoy.
 
