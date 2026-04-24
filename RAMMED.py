@@ -1,11 +1,98 @@
 def fp():
     import os.path
-    global filepath, path 
-    path = str(os.path.expanduser("~\curseforge\minecraft\instances"))
+    import os
+    global filepath
+    global path
+    if os.name == 'nt':
+        pospaths = []
+        cache = open("ntpaths.txt", "r")
+        ntpaths = list(cache)
+        for i in ntpaths:
+            i = i.strip()
+            i = os.path.expanduser(i)
+            if os.path.isdir(i) == False:
+                pass
+            elif os.path.isdir(i) == True:
+                pospaths.append(i)        
+        if len(pospaths) < 2:
+            for i in pospaths:
+                path = i
+                break
+        elif len(pospaths) > 1:
+            print("Multiple modloaders found, which one would you like to select? ")
+            a = 0
+            for i in pospaths:
+                a += 1
+                if "curse" in i:
+                    i = "Curseforge"
+                elif "gd" in i:
+                    i = "GD_Launcher"
+                elif "lunar" in i:
+                    i = "Lunar Client"
+                elif "prism" in i:
+                    i = "Prism Launcher"
+                elif "Modrinth" in i:
+                    i = "Modrinth"
+                print(f"{a}. {i}")
+            a = 0
+            multsel = int(input())
+            for i in pospaths:
+                a += 1
+                if a == multsel:
+                    path = i
+                else:
+                    pass
+        if len(pospaths) == 0:
+            print("Could not detect a mod loader! Exiting... ")
+            import sys
+            sys.exit(0)
+    elif os.name == "posix":
+        pospaths = []
+        cache = open("posixpaths.txt", "r")
+        ntpaths = list(cache)
+        for i in ntpaths:
+            i = i.strip()
+            i = os.path.expanduser(i)
+            if os.path.isdir(i) == False:
+                pass
+            elif os.path.isdir(i) == True:
+                pospaths.append(i)        
+        if len(pospaths) < 2:
+            for i in pospaths:
+                path = i
+                break
+        elif len(pospaths) > 1:
+            print("Multiple modloaders found, which one would you like to select? ")
+            a = 0
+            for i in pospaths:
+                a += 1
+                if "curse" in i:
+                    i = "Curseforge"
+                elif "gd" in i:
+                    i = "GD_Launcher"
+                elif "lunar" in i:
+                    i = "Lunar Client"
+                elif "prism" in i:
+                    i = "Prism Launcher"
+                elif "Modrinth" in i:
+                    i = "Modrinth"
+                print(f"{a}. {i}")
+            a = 0
+            multsel = int(input())
+            for i in pospaths:
+                a += 1
+                if a == multsel:
+                    path = i
+                else:
+                    pass
+        if len(pospaths) == 0:
+            print("Could not detect a mod loader! Exiting... ")
+            import sys
+            sys.exit(0)
     listedpath = list(os.listdir(path))
     if len(listedpath) < 2:
         for i in listedpath:
-            path = os.path.expanduser(f"~\curseforge\minecraft\Instances\{i}\mods")
+            path = f"{path}\{i}\mods"
             filepath = path
     else:
         c = 0
@@ -22,7 +109,7 @@ def fp():
                 if sel != c:
                     pass
                 else:
-                    path = os.path.expanduser(f"~\curseforge\minecraft\Instances\{i}\mods")
+                    path = f"{path}\{i}\mods"
                     filepath = path
 def asciiArt():
     print("\n    Welcome to the Rudimentary Assisted Minecraft Modpack Extractor and Downloader (or RAMMED)! ")
@@ -190,7 +277,6 @@ def main():
             elif c == 1:
                 #case if connected to previous known host
                 instUnpck()
-
 def lister():
     #imports listdir exclusively
     from os import listdir as list
@@ -198,23 +284,18 @@ def lister():
     global filepath, path
     fp()
     while True:
-        confirm = input(f"Is this the right filepath? Y/N: \n{filepath}\n")
-        if confirm == 'Y' or confirm == 'y':
-            #python interpreter works with filepaths using // instead of /
-            filepath = filepath.replace("/","//")
-            modlist = list(filepath)
-            print("Here are your installed mods: ")
-            #only presents mod files, ignores readme's/other files (.disabled is the extension mod loaders use to disable mods)
-            for l in modlist:
-                if ".zip" in l or ".disabled" in l or ".jar" in l:
-                    print(l)
-                    sleep(0.005)
-                else:
-                    pass
-            break
-        else:
-            pass
-
+        #python interpreter works with filepaths using // instead of /
+        filepath = filepath.replace("/","//")
+        modlist = list(filepath)
+        print("Here are your installed mods: ")
+        #only presents mod files, ignores readme's/other files (.disabled is the extension mod loaders use to disable mods)
+        for l in modlist:
+            if ".zip" in l or ".disabled" in l or ".jar" in l:
+                print(l)
+                sleep(0.005)
+            else:
+                pass
+        break
 def deleter():
     #imports select tools from OS lib
     from os import listdir
@@ -243,7 +324,6 @@ def deleter():
             break
         else:
             break
-
 def server():
     #import required functions from libs
     from shutil import make_archive as archive
@@ -273,8 +353,7 @@ def server():
 asciiArt()
 
 # Things to add:
-#      multi-threaded server locater 3000
 #      clamd anti-virus on share/install functions (if it's light enough)
 #      UI Cleanup
 #      option to delete entire instance folder
-#      un-hardcode this for just forge on just nt (make a reference cache list for nt/posix instance locations for popular mod loaders)
+#      Massively overhauled webserver address locator
