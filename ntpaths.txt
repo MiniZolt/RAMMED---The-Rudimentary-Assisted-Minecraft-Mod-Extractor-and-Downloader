@@ -1,0 +1,5 @@
+~\curseforge\minecraft\Instances
+~\AppData\Roaming\PrismLauncher\instances
+~\AppData\Roaming\ModrinthApp\profiles
+~\AppData\Roaming\gdlauncher_carbon\instances
+~\.lunarclient\profiles
