@@ -1,0 +1,5 @@
+~/.var/app/com.lunarclient.LunarClient/.lunarclient/
+~/.local/share/gdlauncher_carbon/instances
+~/.local/share/ModrinthApp/profiles
+~/.local/share/PrismLauncher/instances
+~/Documents/CurseForge/minecraft/Instances
