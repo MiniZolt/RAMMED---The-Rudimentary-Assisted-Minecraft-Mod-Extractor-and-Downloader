@@ -27,8 +27,13 @@ You have been warned.
 
 INSTALL INSTRUCTIONS: 
 
-This program is in very, very early stages so it's a bit inefficient to install. First, download the py file 
-and copy the path to where you saved it. Open your terminal and run:
+If you don't have Python 3 installed, this script obviously won't function. Follow the download instructions
+for your OS at the following link to install Python onto your system if it isn't installed already:
+https://www.python.org/downloads/
+
+This program is in very, very early stages so it's a bit inefficient to install. Download the contents
+as an archive into a folder in a location of your choosing. Copy the path to the folder, then open your 
+terminal and run:
 python /The/Path/You/Copied/RAMMED.py
 That's it!
 
@@ -42,20 +47,20 @@ and thats it! When you first run it, it will manually scan for whomever is servi
 and then save their address to a cache for when you go to download mods again. If they go offline, or 
 aren't serving their folder, it will manually scan again and add that new host to the cache as well. 
 Otherwise, this runs fairly quick after the first install! Be careful, if you run installer on a 
-folder that already has mods in it, it will overwrite anything with the same name!
+folder that already has mods in it, it will overwrite anything with the same name! 
 
 USE INSTRUCTIONS FOR LISTER
 
-The list function... lists the files in your modfolder (well, actually only .jar/.zip/.disabled but whatever).
+The list function... lists the files in your modfolder (well, actually only .jar/.zip/.disabled since those are the relevant files).
 Same thing as the installer, just pick your insance (if you have multiple). This is somewhat useful to quickly compare 
-folders with your lan mates while you already have the path copied. Is it redundant? Yeah. Is it kind of 
-silly to have in here? Yeah. Did I still add it? Yeah, because it was fun and I'm learning. Womp womp. 
+folders with your lan mates while you already have the path copied.
 
 USE INSTRUCTIONS FOR DELETER
 
-The delete function is a quick way to nuke your mod folder before downloading new ones. Again, same story as above.
-If you have multiple instances, just pick the right one and double check it in the confirmation before you nuke
-the folder. 
+The delete function is a quick way to delete the mods in your mod folder before downloading new ones. Again, same story as above.
+If you have multiple instances, just pick the right one and double check it in the confirmation before you erase
+the folder. THERE IS NO UNDO FOR THIS ACTION. BE VERY, VERY CAREFUL (don't worry too much though, even if you somehow got this
+to run in your downloads or System32 / etc folder it's only going to remove .jar and .zip archives).
 
 USE INSTRUCTIONS FOR SERVER
 
